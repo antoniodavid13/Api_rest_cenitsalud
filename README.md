@@ -1,37 +1,45 @@
-
-
-
 # Centi_Salud API 🩺
 
-API REST robusta desarrollada con **FastAPI** para la gestión de personal médico. Este proyecto implementa una arquitectura desacoplada, utilizando **Pydantic** para validación de esquemas y **MySQL** como motor de base de datos.
+**Proyecto de Gestión de Personal Médico** *Desarrollo de API REST con FastAPI y MySQL*
 
-## 🚀 Características
+---
 
-* **Arquitectura en Capas:** Separación clara entre la lógica de negocio (API) y el acceso a datos (Database).
-* **Validación Estricta:** Uso de Pydantic para asegurar la integridad de los datos de entrada y salida.
-* **Seguridad:** Gestión de credenciales mediante variables de entorno (`.env`).
-* **Documentación Interactiva:** Autogenerada con Swagger UI y Redoc.
-* **Tipado Estático:** Implementación de `typing` para un código más legible y menos propenso a errores.
+## 👤 Información del Estudiante
+* **Nombre y Apellidos:** Antonio David
+* **Número de Alumno / ID:** 
+* **GitHub:** [github.com/tu-usuario](https://github.com/antoniodavid13)
+
+---
+
+## 📝 Descripción del Proyecto
+Este proyecto consiste en una **API REST desacoplada** diseñada para la gestión integral de registros médicos en el sistema **Centi_Salud**. 
+
+La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar y Borrar) sobre una base de datos de especialistas. Se ha puesto especial énfasis en la **validación de datos** mediante Pydantic y en la **seguridad de la configuración** a través de variables de entorno, asegurando que el acceso a la base de datos MySQL sea robusto y escalable.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
-
-* **Backend:** [FastAPI](https://fastapi.tiangolo.com/)
-* **Lenguaje:** Python 3.10+
+* **Framework:** FastAPI
 * **Base de Datos:** MySQL
+* **Validación:** Pydantic (Modelos y Validators)
+* **Entorno:** Python-dotenv para gestión de `.env`
 
 ---
 
-## 📋 Requisitos Previos
+## ⚡ Instrucciones Básicas de Ejecución
 
-1.  Python instalado (v3.10 o superior).
-2.  Servidor MySQL activo.
-3.  Un archivo `.env` en la raíz del proyecto con el siguiente formato:
+Sigue estos pasos para poner en marcha la API en tu entorno local:
 
-```env
-DB_HOST=localhost
-DB_USER=tu_usuario
-DB_PASSWORD=tu_contraseña
-DB_NAME=cenit_salud_db
-DB_PORT=3306
+### 1. Configuración de la Base de Datos
+Asegúrate de tener un servidor MySQL corriendo y ejecuta el siguiente script para preparar la estructura:
+
+```sql
+CREATE DATABASE cenit_salud_db;
+USE cenit_salud_db;
+
+CREATE TABLE medicos (
+    id_medico INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    especialidad VARCHAR(50) DEFAULT 'General',
+    correo_interno VARCHAR(100) NOT NULL
+);
