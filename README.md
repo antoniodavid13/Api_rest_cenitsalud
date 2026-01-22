@@ -7,7 +7,7 @@
 ## 👤 Información del Estudiante
 * **Nombre y Apellidos:** Antonio David
 * **Número de Alumno / ID:** 
-* **GitHub:** [github.com/tu-usuario](https://github.com/antoniodavid13)
+* **GitHub:** [github.com/antoniodavid13](https://github.com/antoniodavid13)
 
 ---
 
