@@ -1,6 +1,6 @@
-Este es un README.md profesional y completo para tu proyecto. He estructurado la información para que cualquier desarrollador (o tú mismo en el futuro) pueda entender cómo instalarlo, configurarlo y usarlo.
 
-Markdown
+
+
 # Centi_Salud API 🩺
 
 API REST robusta desarrollada con **FastAPI** para la gestión de personal médico. Este proyecto implementa una arquitectura desacoplada, utilizando **Pydantic** para validación de esquemas y **MySQL** como motor de base de datos.
