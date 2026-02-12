@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Annotated
+from fastapi.middleware.cors import CORSMiddleware
 from app.database import (
     fetch_all_medicos, 
     fetch_medico_by_id, 
@@ -14,6 +15,13 @@ app = FastAPI(
     title="Centi_Salud API",
     version="1.0.0",
     description="API REST para la gestión integral de personal médico y especialistas"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"], # Puerto por defecto de Vite/React
+    allow_credentials=True,
+    allow_methods=["*"], # Permite GET, POST, PUT, DELETE, etc.
+    allow_headers=["*"],
 )
 
 # ========================
@@ -78,7 +86,7 @@ def ping():
     """Verifica la disponibilidad del servicio."""
     return {"status": "online", "message": "pong"}
 
-@app.get("/medicos", response_model=List[Medico], tags=["Médicos"])
+@app.get("/", response_model=List[Medico], tags=["Médicos"])
 def listar_medicos():
     """Obtiene la lista completa de médicos desde la base de datos."""
     rows = fetch_all_medicos()

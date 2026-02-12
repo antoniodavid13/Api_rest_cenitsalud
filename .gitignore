@@ -1,0 +1,17 @@
+# Entorno virtual de Python
+.venv/
+venv/
+ENV/
+env/
+
+docs/
+
+# Archivos generados por Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / Empaquetado
+dist/
+build/
+*.egg-info/
