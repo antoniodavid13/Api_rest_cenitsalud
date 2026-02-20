@@ -6,19 +6,21 @@ from mysql.connector.cursor import MySQLCursorDict
 
 # Carga las variables de entorno desde el archivo .env para proteger credenciales
 load_dotenv(find_dotenv())
-
 def get_connection():
     """
-    Establece una conexión con la base de datos MySQL utilizando
-    las variables de entorno configuradas.
+    Conexión configurada específicamente para los detalles de tu Aiven MySQL.
     """
     return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "localhost"),
-        user=os.getenv("DB_USER", "root"),
-        password=os.getenv("DB_PASSWORD", ""),
-        database=os.getenv("DB_NAME", "cenit_salud_db"),
-        port=int(os.getenv("DB_PORT", "3306")),
-        charset="utf8mb4"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+        port=int(os.getenv("DB_PORT", "25574")),
+        charset="utf8mb4",
+        # Configuración SSL obligatoria según tu captura de Aiven
+        ssl_ca=None,
+        ssl_disabled=False,
+        ssl_verify_cert=False 
     )
 
 def fetch_all_medicos() -> List[Dict[str, Any]]:
